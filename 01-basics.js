@@ -1,9 +1,11 @@
-//Part b1 -- node basics
+/* PART 1
+  node 01-basics.js
+*/
 console.log('Welcome to Node.js')
 
 
-//Part b2 -- `global`
-/*
+
+/* PART 2
   + Note global functions:
     - `global.console`
     - `global.process`
@@ -18,9 +20,11 @@ console.log('Welcome to Node.js')
 console.log(global)
 console.log(__dirname)
 
-
-// Part c1 -- process.argv[n] for accessing cli arguments
-//            ... storing in variable.
+/*
+ PART 3  --
+ process.argv[n] for accessing cli arguments
+            ... storing in variable.
+*/
 let userInput = process.argv[2]
 
 if(typeof userInput === 'undefined'){

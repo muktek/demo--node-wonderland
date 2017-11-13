@@ -1,8 +1,4 @@
-// (1) We require modules (to use later):
-//    + fs: file system
-//    + path: for resolving file paths
 const fs = require('fs')
-const path = require('path')
 
 
 // (1) We require modules:
@@ -16,7 +12,6 @@ if(typeof projectName === 'undefined'){
 }
 
 fs.mkdirSync(projectName)
-
 
 let htmlTemplate = `
   <!DOCTYPE html>
@@ -38,6 +33,6 @@ let htmlTemplate = `
   </html>
 `
 
-fs.writeFile(path.join(__dirname, projectName, 'index.html'), htmlTemplate ,()=>{
+fs.writeFile(`${__dirname}/projectName`, 'index.html'), htmlTemplate ,()=>{
   console.log('ADDED - index.html')
 })
