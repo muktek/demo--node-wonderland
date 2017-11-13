@@ -1,5 +1,13 @@
+// (1) We require modules (to use later):
+//    + fs: file system
+//    + path: for resolving file paths
 const fs = require('fs')
 const path = require('path')
+
+
+// (1) We require modules:
+//    + fs: file system
+//    + path: for resolving file paths
 const projectName = process.argv[2]
 
 if(typeof projectName === 'undefined'){
@@ -8,6 +16,7 @@ if(typeof projectName === 'undefined'){
 }
 
 fs.mkdirSync(projectName)
+
 
 let htmlTemplate = `
   <!DOCTYPE html>
