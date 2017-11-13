@@ -1,17 +1,20 @@
-const fs = require('fs')
-
-
 // (1) We require modules:
 //    + fs: file system
-//    + path: for resolving file paths
+const fs = require('fs')
+
+// (2) process.argv -- capture argument
 const projectName = process.argv[2]
 
+// if arg not passed to node command
 if(typeof projectName === 'undefined'){
+  //.... then exit process
   console.error('MUST PROVIDE PROJECT NAME')
   process.exit()
 }
 
-fs.mkdirSync(projectName)
+
+//(3) make a directory from argv
+const projectName = fs.mkdirSync(projectName)
 
 let htmlTemplate = `
   <!DOCTYPE html>
@@ -33,6 +36,12 @@ let htmlTemplate = `
   </html>
 `
 
-fs.writeFile(`${__dirname}/projectName`, 'index.html'), htmlTemplate ,()=>{
+//(4) fs.writeFile(«dir», «filename», «data», «callback»)
+//   -  NOTE: callback is asynchronous
+fs.writeFile(`${__dirname}/${projectName}`, 'index.html'), htmlTemplate ,(err)=>{
+  if(err) {
+    return console.log('THERE WAS AN ERROR')
+  }
+
   console.log('ADDED - index.html')
 })
